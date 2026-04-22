@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and Time Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1 id="site-title">Date and Time Calculator</h1>
+    </header>
+    
+    <main>
+        <nav class="calculator-nav">
+            <button data-calc="age">Age Calculator</button>
+            <button data-calc="date">Date Calculator</button>
+            <button data-calc="time">Time Calculator</button>
+            <button data-calc="hours">Hours Calculator</button>
+            <button data-calc="timecard">Time Card Calculator</button>
+            <button data-calc="timezone">Time Zone Calculator</button>
+            <button data-calc="duration">Time Duration Calculator</button>
+            <button data-calc="daycounter">Day Counter</button>
+            <button data-calc="dayofweek">Day of Week Calculator</button>
+        </nav>
+        
+        <section id="calculator-container">
+            <div id="age-calculator" class="calculator-section hidden">
+                <h2>Age Calculator</h2>
+                <div class="input-group">
+                    <label for="age-birth-date">Birth Date:</label>
+                    <input type="date" id="age-birth-date">
+                </div>
+                <button id="age-calculate-btn">Calculate Age</button>
+                <div id="age-result" class="result"></div>
+            </div>
+            
+            <div id="date-calculator" class="calculator-section hidden">
+                <h2>Date Calculator</h2>
+                <div class="input-group">
+                    <label for="date-start">Start Date:</label>
+                    <input type="date" id="date-start">
+                </div>
+                <div class="input-group">
+                    <label for="date-end">End Date:</label>
+                    <input type="date" id="date-end">
+                </div>
+                <div class="input-group">
+                    <label for="date-operation">Operation:</label>
+                    <select id="date-operation">
+                        <option value="diff">Difference</option>
+                        <option value="add">Add Days</option>
+                        <option value="subtract">Subtract Days</option>
+                    </select>
+                </div>
+                <div class="input-group" id="date-days-input" style="display:none;">
+                    <label for="date-days">Days:</label>
+                    <input type="number" id="date-days" value="0">
+                </div>
+                <button id="date-calculate-btn">Calculate</button>
+                <div id="date-result" class="result"></div>
+            </div>
+            
+            <div id="time-calculator" class="calculator-section hidden">
+                <h2>Time Calculator</h2>
+                <div class="input-group">
+                    <label for="time-value">Time Value:</label>
+                    <input type="number" id="time-value" value="0">
+                </div>
+                <div class="input-group">
+                    <label for="time-from">From:</label>
+                    <select id="time-from">
+                        <option value="seconds">Seconds</option>
+                        <option value="minutes">Minutes</option>
+                        <option value="hours">Hours</option>
+                        <option value="days">Days</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="time-to">To:</label>
+                    <select id="time-to">
+                        <option value="seconds">Seconds</option>
+                        <option value="minutes">Minutes</option>
+                        <option value="hours">Hours</option>
+                        <option value="days">Days</option>
+                    </select>
+                </div>
+                <button id="time-calculate-btn">Convert</button>
+                <div id="time-result" class="result"></div>
+            </div>
+            
+            <div id="hours-calculator" class="calculator-section hidden">
+                <h2>Hours Calculator</h2>
+                <div class="input-group">
+                    <label for="hours-start">Start Time:</label>
+                    <input type="time" id="hours-start">
+                </div>
+                <div class="input-group">
+                    <label for="hours-end">End Time:</label>
+                    <input type="time" id="hours-end">
+                </div>
+                <div class="input-group">
+                    <label for="hours-break">Break (minutes):</label>
+                    <input type="number" id="hours-break" value="0" min="0">
+                </div>
+                <button id="hours-calculate-btn">Calculate Hours</button>
+                <div id="hours-result" class="result"></div>
+            </div>
+            
+            <div id="timecard-calculator" class="calculator-section hidden">
+                <h2>Time Card Calculator</h2>
+                <div id="timecard-entries"></div>
+                <button id="timecard-add-entry">Add Entry</button>
+                <button id="timecard-calculate-btn">Calculate Total</button>
+                <div id="timecard-result" class="result"></div>
+            </div>
+            
+            <div id="timezone-calculator" class="calculator-section hidden">
+                <h2>Time Zone Calculator</h2>
+                <div class="input-group">
+                    <label for="timezone-time">Time:</label>
+                    <input type="time" id="timezone-time">
+                </div>
+                <div class="input-group">
+                    <label for="timezone-date">Date:</label>
+                    <input type="date" id="timezone-date">
+                </div>
+                <div class="input-group">
+                    <label for="timezone-from">From Zone:</label>
+                    <select id="timezone-from"></select>
+                </div>
+                <div class="input-group">
+                    <label for="timezone-to">To Zone:</label>
+                    <select id="timezone-to"></select>
+                </div>
+                <button id="timezone-calculate-btn">Convert</button>
+                <div id="timezone-result" class="result"></div>
+            </div>
+            
+            <div id="duration-calculator" class="calculator-section hidden">
+                <h2>Time Duration Calculator</h2>
+                <div class="input-group">
+                    <label for="duration-start">Start Time:</label>
+                    <input type="datetime-local" id="duration-start">
+                </div>
+                <div class="input-group">
+                    <label for="duration-end">End Time:</label>
+                    <input type="datetime-local" id="duration-end">
+                </div>
+                <button id="duration-calculate-btn">Calculate Duration</button>
+                <div id="duration-result" class="result"></div>
+            </div>
+            
+            <div id="daycounter-calculator" class="calculator-section hidden">
+                <h2>Day Counter</h2>
+                <div class="input-group">
+                    <label for="daycounter-start">Start Date:</label>
+                    <input type="date" id="daycounter-start">
+                </div>
+                <div class="input-group">
+                    <label for="daycounter-end">End Date:</label>
+                    <input type="date" id="daycounter-end">
+                </div>
+                <button id="daycounter-calculate-btn">Count Days</button>
+                <div id="daycounter-result" class="result"></div>
+            </div>
+            
+            <div id="dayofweek-calculator" class="calculator-section hidden">
+                <h2>Day of Week Calculator</h2>
+                <div class="input-group">
+                    <label for="dayofweek-date">Select Date:</label>
+                    <input type="date" id="dayofweek-date">
+                </div>
+                <button id="dayofweek-calculate-btn">Find Day</button>
+                <div id="dayofweek-result" class="result"></div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="components/calculator_utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
